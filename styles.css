@@ -11,8 +11,14 @@
 }
 
 body {
-  font-family: "Lato", sans-serif;
   margin: 0;
+  font-family: "Lato", sans-serif;
+  transition: transform 0.3s ease;
+}
+
+body.show-nav {
+  /* Width of the NAV */
+  transform: translateX(200px);
 }
 
 nav {
@@ -121,6 +127,10 @@ button:focus {
   background-color: rgba(0, 0, 0, 0.6);
 }
 
+.modal-container.show-modal {
+  display: block;
+}
+
 .modal {
   width: 400px;
   max-width: 100%;
@@ -132,6 +142,8 @@ button:focus {
   background-color: #fff;
   border-radius: 5px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  animation-name: modalopen;
+  animation-duration: var(--modal-duration);
 }
 
 .modal-header {
@@ -169,4 +181,14 @@ button:focus {
   right: 0;
   background: transparent;
   font-size: 25px;
+}
+
+@keyframes modalopen {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
